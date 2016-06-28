@@ -9,6 +9,10 @@
            review="http://gerrit.aospa.co"
            revision="marshmallow-caf" />
 
+  <remote  name="gs"
+           fetch="https://github.com/GalaticStryder"
+           revision="marshmallow-caf" />
+
   <remote  name="caf"
            fetch="git://codeaurora.org/"
            review="codeaurora.org"
@@ -25,13 +29,12 @@
            remote="aosp"
            sync-j="4" />
 
-  <project path="manifest" name="manifest" remote="aospa" />
-
-  <project path="build" name="android_build" remote="aospa" >
+  <project path="manifest" name="manifest" remote="gs" />
+  <project path="build" name="build" remote="gs" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
   <project path="abi/cpp" name="platform/abi/cpp" groups="pdk" />
-  <project path="art" name="android_art" remote="aospa" groups="pdk" />
+  <project path="art" name="art" remote="gs" />
   <project path="bionic" name="android_bionic" remote="aospa" revision="marshmallow" groups="pdk" />
   <project path="bootable/recovery" name="platform/bootable/recovery" remote="caf" groups="pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
@@ -66,6 +69,7 @@
   <project path="external/clang" name="platform/external/clang" groups="pdk" />
   <project path="external/cmockery" name="platform/external/cmockery" groups="pdk-fs" />
   <project path="external/compiler-rt" name="platform/external/compiler-rt" groups="pdk" />
+  <project path="external/connectivity" name="external_connectivity" remote="gs" />
   <project path="external/conscrypt" name="platform/external/conscrypt" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/crcalc" name="platform/external/crcalc" groups="pdk-fs" />
   <project path="external/deqp" name="platform/external/deqp" groups="pdk-fs" />
@@ -217,7 +221,7 @@
   <project path="external/selinux" name="platform/external/selinux" groups="pdk" />
   <project path="external/sepolicy" name="platform/external/sepolicy" groups="pdk" />
   <project path="external/sfntly" name="platform/external/sfntly" groups="pdk,qcom_msm8x26" />
-  <project path="external/skia" name="platform/external/skia" remote="caf" groups="pdk-cw-fs,qcom_msm8x26" />
+  <project path="external/skia" name="external_skia" remote="gs" />
   <project path="external/slf4j" name="platform/external/slf4j" groups="pdk-fs" />
   <project path="external/smali" name="platform/external/smali" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/sonic" name="platform/external/sonic" groups="pdk" />
@@ -226,6 +230,7 @@
   <project path="external/sqlite" name="platform/external/sqlite" groups="pdk" />
   <project path="external/squashfs-tools" name="platform/external/squashfs-tools" groups="pdk" />
   <project path="external/srtp" name="platform/external/srtp" groups="pdk-cw-fs,pdk-fs" />
+  <project path="external/stlport" name="external_stlport" remote="gs" />
   <project path="external/strace" name="platform/external/strace" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/svox" name="platform/external/svox" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/tagsoup" name="platform/external/tagsoup" groups="pdk-cw-fs,pdk-fs" />
@@ -250,8 +255,8 @@
   <project path="external/zlib" name="platform/external/zlib" groups="pdk" />
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs,pdk-fs" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs,pdk-fs" />
-  <project path="frameworks/av" name="android_frameworks_av" remote="aospa" groups="pdk" />
-  <project path="frameworks/base" name="android_frameworks_base" remote="aospa" groups="pdk-cw-fs" />
+  <project path="frameworks/av" name="frameworks_av" remote="gs" />
+  <project path="frameworks/base" name="frameworks_base" remote="gs" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
@@ -260,7 +265,7 @@
   <project path="frameworks/minikin" name="platform/frameworks/minikin" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/ml" name="platform/frameworks/ml" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/multidex" name="platform/frameworks/multidex" groups="pdk-cw-fs,pdk-fs" />
-  <project path="frameworks/native" name="android_frameworks_native" remote="aospa" groups="pdk" />
+  <project path="frameworks/native" name="frameworks_native" remote="gs" />
   <project path="frameworks/opt/bitmap" name="platform/frameworks/opt/bitmap" groups="pdk-fs" />
   <project path="frameworks/opt/bluetooth" name="platform/frameworks/opt/bluetooth" remote="caf" revision="LA.HB.1.1.1" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/calendar" name="platform/frameworks/opt/calendar" groups="pdk-cw-fs,pdk-fs" />
@@ -288,7 +293,7 @@
   <project path="frameworks/webview" name="platform/frameworks/webview" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/wilhelm" name="platform/frameworks/wilhelm" groups="pdk-cw-fs,pdk-fs" />
   <project path="hardware/akm" name="platform/hardware/akm" />
-  <project path="hardware/broadcom/libbt" name="platform/hardware/broadcom/libbt" groups="pdk" />
+  <project path="hardware/broadcom/libbt" name="hardware_broadcom_libbt" remote="gs" />
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" groups="pdk,broadcom_wlan" />
   <project path="hardware/invensense" name="platform/hardware/invensense" groups="invensense" />
   <project path="hardware/libhardware" name="android_hardware_libhardware" remote="aospa" groups="pdk" />
@@ -399,8 +404,8 @@
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" />
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" />
   <project path="sdk" name="platform/sdk" groups="pdk-cw-fs,pdk-fs" />
-  <project path="system/bt" name="platform/system/bt" remote="caf" revision="LA.HB.1.1.1" groups="pdk" />
-  <project path="system/core" name="android_system_core" remote="aospa" />
+  <project path="system/bt" name="system_bt" remote="gs" />
+  <project path="system/core" name="system_core" remote="gs" />
   <project path="system/extras" name="android_system_extras" remote="aospa" groups="pdk" />
   <project path="system/gatekeeper" name="platform/system/gatekeeper" groups="pdk" />
   <project path="system/keymaster" name="platform/system/keymaster" remote="caf" groups="pdk" />
@@ -422,17 +427,16 @@
   <project path="tools/studio/translation" name="platform/tools/studio/translation" groups="notdefault,tools" />
   <project path="tools/swt" name="platform/tools/swt" groups="notdefault,tools" />
   <project path="tools/tradefederation" name="platform/tools/tradefederation" groups="notdefault,tradefed" />
-
-  <project path="vendor/theme" name="android_vendor_theme" remote="aospa" groups="aospa" revision="marshmallow" />
-  <project path="vendor/pa" name="android_vendor_pa" remote="aospa">
+  <project path="vendor/pa" name="vendor_pa" remote="gs">
     <copyfile src="build.sh" dest="rom-build.sh" />
   </project>
+  <project path="vendor/theme" name="android_vendor_theme" remote="aospa" groups="aospa" revision="marshmallow" />
 
   <!-- CAF Additions -->
-  <project path="device/qcom/common" name="android_device_qcom_common" remote="aospa" />
-  <project path="device/qcom/sepolicy" name="device/qcom/sepolicy" remote="caf" />
-  <project path="hardware/qcom/bt" name="android_hardware_qcom_bt" remote="aospa" />
-  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="aospa" />
+  <project path="device/qcom/common" name="device_qcom_common" remote="gs" />
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="gs" />
+  <project path="hardware/qcom/bt" name="hardware_qcom_bt" remote="gs" />
+  <project path="hardware/qcom/wlan" name="hardware_qcom_wlan" remote="gs" />
   <project path="system/qcom" name="platform/system/qcom" remote="caf" />
   <project path="vendor/qcom/opensource/bluetooth" name="platform/vendor/qcom-opensource/bluetooth" remote="caf" revision="LA.HB.1.1.1" />
   <project path="vendor/qcom/opensource/dataservices" name="platform/vendor/qcom-opensource/dataservices" remote="caf" revision="LA.BF.1.1.3_rb1.12" />
